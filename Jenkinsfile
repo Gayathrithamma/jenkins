@@ -1,9 +1,19 @@
-pipeline {  agent any
-  stages {    stage('compile') {
-      steps {        // Compile the Java file
-        bat 'javac HelloWorld.java'      }
-    }    stage('run') {
-      steps {        // Run the compiled Java program
-        bat 'java HelloWorld'      }
-    }  }
+pipeline {
+    agent any
+
+    stages {
+        stage('Compile') {
+            steps {
+                // Compile the Java file
+                sh 'javac HelloWorld.java'
+            }
+        }
+        
+        stage('Run') {
+            steps {
+                // Run the compiled Java program
+                sh 'java HelloWorld'
+            }
+        }
+    }
 }
