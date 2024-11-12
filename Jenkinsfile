@@ -5,14 +5,14 @@ pipeline {
         stage('Compile') {
             steps {
                 // Compile the Java file
-                sh 'javac HelloWorld.java'
+                bat 'javac HelloWorld.java'
             }
         }
         
         stage('Run') {
             steps {
                 // Run the compiled Java program
-                sh 'java HelloWorld'
+                bat 'java HelloWorld'
             }
         }
     }
