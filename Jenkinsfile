@@ -1,26 +1,9 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Checkout') {
-            steps {
-                // Assuming the Java file is in source control
-                checkout scm
-            }
-        }
-
-        stage('Compile') {
-            steps {
-                // Compile HelloWorld.java
-                sh 'javac HelloWorld.java'
-            }
-        }
-
-        stage('Run') {
-            steps {
-                // Run the compiled HelloWorld class
-                sh 'java HelloWorld'
-            }
-        }
-    }
+pipeline {  agent any
+  stages {    stage('compile') {
+      steps {        // Compile the Java file
+        bat 'javac HelloWorld.java'      }
+    }    stage('run') {
+      steps {        // Run the compiled Java program
+        bat 'java HelloWorld'      }
+    }  }
 }
